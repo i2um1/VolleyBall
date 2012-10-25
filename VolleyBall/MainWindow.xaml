@@ -1,0 +1,29 @@
+﻿<Window x:Class="VolleyBall.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:VolleyBall.Controls"
+        Title="Volley Ball" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" PreviewKeyUp="Window_PreviewKeyUp">
+    <Grid Background="Blue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Human" Style="{StaticResource Text}" />
+        <TextBlock x:Name="result" Text="0-0" Grid.Column="1" TextAlignment="Center" Style="{StaticResource Text}" />
+        <TextBlock Text="Computer" Grid.Column="3" TextAlignment="Right" Style="{StaticResource Text}" />
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="3" Height="3" Fill="White" />
+        <Canvas x:Name="canvas" Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource Field}">
+            <local:Fence x:Name="fence" Width="10" Height="150" />
+            <local:Player x:Name="player1" Speed="5" StartVelocityJump="5" SpeedJump="3" />
+            <local:Player x:Name="player2" Speed="5" StartVelocityJump="5" SpeedJump="3" FlowDirection="RightToLeft" />
+            <local:Ball x:Name="ball" Speed="3" />
+        </Canvas>
+    </Grid>
+</Window>
